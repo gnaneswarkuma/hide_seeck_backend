@@ -9,9 +9,11 @@ const FRONTEND = process.env.FRONTEND_URL;
 const server = http.createServer();
 const io = new Server(server, {
  cors: {
-  origin: [FRONTEND, "http://localhost:5173"],
-  methods: ["GET", "POST"]
+  origin: ["http://localhost:5173", "https://chimerical-souffle-23170d.netlify.app"],
+  methods: ["GET", "POST"],
+  credentials: true
 }
+
 
 });
 
