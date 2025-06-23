@@ -4,10 +4,11 @@ const { log } = require("console");
 
 const server = http.createServer();
 const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:5173", 
-    methods: ["GET", "POST"]
-  }
+ cors: {
+  origin: ["http://localhost:5173", "https://your-frontend.netlify.app"],
+  methods: ["GET", "POST"]
+}
+
 });
 
 
@@ -161,7 +162,7 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT =3000;
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`✅ Socket.IO server running on http://0.0.0.0:${PORT}`);
 });
