@@ -44,7 +44,7 @@ io.on("connection", (socket) => {
       highscore:0,
     };
     
-    rooms[roomName].detalis[socket.id]={state:[0,15,0],hero:false,name:"player"+`${0}`,color:"none",walk:false,score:0}
+    rooms[roomName].detalis[socket.id]={state:[0,16,0],hero:false,name:"player"+`${0}`,color:"none",walk:false,score:0}
     socket.join(roomName);
     callback({ success: true, creator: true ,name:socket.id});
     io.to(roomName).emit("room-update", rooms[roomName]);
@@ -65,7 +65,7 @@ io.on("connection", (socket) => {
     if (room.players.length >= 6) return callback({ success: false, message: "Room full" });
     const l=room.players.length;
     room.players.push(socket.id);
-    rooms[roomName].detalis[socket.id]={state:[l,15,0],hero:false,name:"player"+`${l}`,color:"none",walk:false,score:0}
+    rooms[roomName].detalis[socket.id]={state:[l,16,0],hero:false,name:"player"+`${l}`,color:"none",walk:false,score:0}
     socket.join(roomName);
     callback({ success: true, creator: false ,name:socket.id });
     
